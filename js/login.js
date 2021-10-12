@@ -31,8 +31,6 @@ console.log(usuarios[0].usuario);
 console.log(usuarios[1].usuario);
 console.log(usuarios[2].usuario);
 
-
-
 function validar(){
     let x = document.forms["form_login"]["inputuser"].value;
     let y = document.forms["form_login"]["inputpassword"].value;
@@ -53,7 +51,7 @@ function validar(){
         //     alert("El usuario y/o contrseñan no existen/coinciden");
         //     return false;
         // }
-        
+
         else
             contador++;
 
