@@ -46,12 +46,6 @@ function validar(){
             alert("Bienvenido"+" "+usuarios[i].getUsuario())
             return false; //PARA NO REDIRIGIR
         }
-        //ESTE METODO REPITE EL ALERT PARA CADA ITERACION DEL FOR SOBRE USUARIOS
-        // else{
-        //     alert("El usuario y/o contrseñan no existen/coinciden");
-        //     return false;
-        // }
-
         else
             contador++;
 
