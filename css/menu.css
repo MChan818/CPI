@@ -1,0 +1,23 @@
+.menu-row-container{
+    height: 40vh;
+    width: 100%;
+    /* background-color: blue; */
+}
+
+
+.menu-item-container{
+    height: 30vh;
+    width: 35vh;
+    border-radius: 1vh;
+    border: 1px solid rgb(194, 190, 190);
+    float: left;
+    margin-left: 1vh;
+    /* background-color: gray; */
+}
+
+.menu-img{
+    height: 65%;
+    width: 100%;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+}
