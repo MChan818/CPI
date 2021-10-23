@@ -17,8 +17,8 @@
             <button class="tablinks" onclick="menu_toggle(event, 'general')" id="defaultOpen">Panorama General</button>
             <button class="tablinks" onclick="menu_toggle(event, 'mesa1')">Mesa 1</button>
             <button class="tablinks" onclick="menu_toggle(event, 'mesa2')">Mesa 2</button>
-            <button class="tablinks" onclick="menu_toggle(event, '1-vs-1')">Mesa 3</button>
-            <button class="tablinks" onclick="menu_toggle(event, 'TFT')">Mesa 4</button>
+            <button class="tablinks" onclick="menu_toggle(event, 'mesa3')">Mesa 3</button>
+            <button class="tablinks" onclick="menu_toggle(event, 'mesa4')">Mesa 4</button>
         </div>
         
         <div id="general" class="tabcontent">
@@ -40,35 +40,35 @@
                 <div class="menu-item-container">
                     <img src="imagenes/food1.jpg" alt="generico" class="menu-img">
                     <hr>
-                    
+                    <div class="counter-container">
+                        <button class="counter-minus button-menu">-</button>
+                        <p class="counter-display">(...)</p>
+                        <button class="counter-plus button-menu">+</button>
+                    </div>
+                    <button class="button-menu button-buy"> Agregar al Pedido</button>
                 </div>
                 <div class="menu-item-container">
 
                 </div>
-                <div class="menu-item-container">
 
-                </div>
-                <div class="menu-item-container">
-
-                </div>
             </section>
             <!--  -->
         </div>
           
         <div id="mesa2" class="tabcontent">
-            <h3 class="title-reglamento">ARAM 5 vs 5</h3>
+            <h3 class="title-reglamento">Pedidos de la mesa 2</h3>
             <hr>
             <p class="text-reglamento">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo rerum cumque iusto rem, deleniti natus doloribus dicta. Excepturi expedita inventore labore vero dicta, laudantium, consequatur possimus natus saepe delectus omnis.</p>
         </div>
           
-        <div id="1-vs-1" class="tabcontent">
-            <h3 class="title-reglamento">1 vs 1</h3>
+        <div id="mesa3" class="tabcontent">
+            <h3 class="title-reglamento">Pedidos de la mesa 3</h3>
             <hr>
             <p class="text-reglamento">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores incidunt, earum illum libero asperiores ratione error eos voluptatem pariatur omnis odit facere optio nesciunt soluta nisi aut tempore deserunt aliquam.</p>
         </div>
         
-        <div id="TFT" class="tabcontent">
-            <h3 class="title-reglamento">TFT</h3>
+        <div id="mesa4" class="tabcontent">
+            <h3 class="title-reglamento">Pedidos de la mesa 4</h3>
             <hr>
             <p class="text-reglamento">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam nemo est placeat excepturi, eos doloribus maxime tenetur molestias tempora illo obcaecati aut delectus ea eum quis, perspiciatis sint provident quia!</p>
         </div>
@@ -76,5 +76,6 @@
     
 
     <script src="js/app.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

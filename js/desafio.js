@@ -10,18 +10,18 @@ function ordenar(entrada,salida,valor){
     if(valor == 1){
         salida.sort(function(a,b){return a-b})
     }
-    if(valor == -1){
+    else{
         salida.sort(function(a,b){return b-a})
     }
     return salida;
 }
 
-//SI EL VALOR ES 1, ES EN ORDEN ASCENDENTE.
-//SI EL VALOR ES -1, ES EN ORDEN DESCENDIENTE.
+//SI EL VALOR ES TRUE, ES EN ORDEN ASCENDENTE.
+//SI EL VALOR ES FALSE, ES EN ORDEN DESCENDIENTE.
 
-ordenar(numeros,ascendiente,1);
-ordenar(numeros,descendiente,-1);
+ordenar(numeros,ascendiente,true);
+ordenar(numeros,descendiente,false);
 
-console.log("Ascendicente(1):"+ " " + ascendiente);
-console.log("Descendiente(-1):"+ " " + descendiente);
+console.log("Ascendicente(true):"+ " " + ascendiente);
+console.log("Descendiente(false):"+ " " + descendiente);
 
