@@ -44,7 +44,7 @@ function validar(){
     for(let i = 0; i < usuarios.length; i++){
         if(x == usuarios[i].getUsuario() && y == usuarios[i].getContrasena()){
             alert("Bienvenido"+" "+usuarios[i].getUsuario())
-            return false; //PARA NO REDIRIGIR
+            return true; //PARA NO REDIRIGIR
         }
         else
             contador++;

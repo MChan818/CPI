@@ -1,12 +1,34 @@
-import ShopCounter from "./shop_counter.js"
+class Item{
+    constructor(nombre, precio){
+        this.nombre = nombre;
+        this.precio = precio;
+        this.disponible = true;
+    }
 
-const root = document.querySelector('.menu-row-container');
+    getNombre(){
+        return this.nombre;
+    }
+    getPrecio(){
+        return this.precio;
+    }
+    getDisponible(){
+        return this.disponible;
+    }
+    setDisponible(valor){
+        if(valor == true)
+            this.disponible = true;
+        else
+            this.disponible = false;
+    }
+}
 
-//ACA ESTA LA DUDA 
-const view = new ShopCounter(root, "Bife de Chorizo", 400, 0, `imagenes/food1.jpg`);
-const view2 = new ShopCounter(root, "Repetido Bife", 400, 0, `imagenes/food1.jpg`);
+//CONTADOR PARA PEDIDOS
+let contador_all = [];
+for(let i = 0; i < contador_all.length; i++){
+    contador_all[i] = 0;
+}
 
-//--------------------------CONTADOR BOTONES-------------------------------------//
+
 let counterDisplay = document.querySelector('.counter-display');
 let counterMinus = document.querySelector('.counter-minus');
 let counterPlus = document.querySelector('.counter-plus');
