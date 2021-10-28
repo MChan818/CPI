@@ -17,11 +17,8 @@ const list4 = document.querySelector('#list_mesa4');
 /*-----------------------------------*/
 const items = [];
 items.push(new Item(1,"Bife 1", 400));
-items.push(new Item(2,"Bife 2", 350));
-items.push(new Item(3,"Bife 3", 400));
-items.push(new Item(4,"Bife 4", 400));
-items.push(new Item(5,"Bife 5", 400));
-items.push(new Item(6,"Bife 6", 400));
+items.push(new Item(2,"Bife 2", 500));
+items.push(new Item(3,"Bife 3", 1000));
 
 /*----------------------------------------*/
 //--------------------------CONTADOR BOTONES-------------------------------------//
@@ -33,19 +30,35 @@ NOTA2: Como explicó el tutor, el archivo "shop_counter.js" lo dejare de utiliza
 desde una base de datos.
 */
 /*-----------------------------*/
-add_product_display(root, items[0], `imagenes/food1.jpg`);
-add_product_display(root, items[1], `imagenes/food1.jpg`);
-add_product_display(root, items[2], `imagenes/food1.jpg`);
-add_product_display(root2, items[0], `imagenes/food1.jpg`);
-add_product_display(root2, items[1], `imagenes/food1.jpg`);
-add_product_display(root2, items[2], `imagenes/food1.jpg`);
-activate_pedido(list1, items[0]);
-activate_pedido(list1, items[1]);
-activate_pedido(list1, items[2]);
+add_product_display(root, items[0], `imagenes/food1.jpg`,1);
+add_product_display(root, items[1], `imagenes/food1.jpg`,1);
+add_product_display(root, items[2], `imagenes/food1.jpg`,1);
+add_product_display(root2, items[0], `imagenes/food1.jpg`,2);
+add_product_display(root2, items[1], `imagenes/food1.jpg`,2);
+add_product_display(root2, items[2], `imagenes/food1.jpg`,2);
+
+for(let i = 0; i < 3; i++){
+    activate_pedido(list1, items[i],1);
+    activate_pedido(list2, items[i],2);
+    activate_contador(items[i],1)
+    activate_contador(items[i],2)
+}
+
+
+// activate_pedido(list1, items[0],1);
+// activate_pedido(list1, items[1],1);
+// activate_pedido(list1, items[2],1);
+// activate_pedido(list2, items[0],2);
+// activate_pedido(list2, items[1],2);
+// activate_pedido(list2, items[2],2);
 
 /*DUDA: SI PONGO activate_contador DENTRO DE LA FUNCION ADD_PRODCUCT_DISPLAY, SOLO FUNCIONA CON EL ULTIMO PRODUCTO */
-for(let i = 0; i < 5; i++){
-    activate_contador(items[i]["id"]);
-}
+// activate_contador(items[0],1);
+// activate_contador(items[1],1);
+// activate_contador(items[2],1);
+// activate_contador(items[0],2);
+// activate_contador(items[1],2);
+// activate_contador(items[2],2);
+
 
 

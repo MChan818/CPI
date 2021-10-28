@@ -5,7 +5,6 @@ export class Item{
         this.precio = precio;
         this.disponible = true;
     }
-
     getNombre(){
         return this.nombre;
     }
@@ -14,6 +13,9 @@ export class Item{
     }
     getDisponible(){
         return this.disponible;
+    }
+    getID(){
+        return this.id;
     }
     setDisponible(valor){
         if(valor == true)
