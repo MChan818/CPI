@@ -44,7 +44,8 @@ function validar(){
     for(let i = 0; i < usuarios.length; i++){
         if(x == usuarios[i].getUsuario() && y == usuarios[i].getContrasena()){
             alert("Bienvenido"+" "+usuarios[i].getUsuario())
-            return true; //PARA NO REDIRIGIR
+            window.location.href = "http://www.w3schools.com";//NO ESTA FUNCIONANDO
+            return true;
         }
         else
             contador++;

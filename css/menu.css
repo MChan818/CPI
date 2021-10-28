@@ -4,7 +4,6 @@
     /* background-color: blue; */
 }
 
-
 .menu-item-container{
     height: 30vh;
     width: 35vh;
@@ -12,7 +11,21 @@
     border: 1px solid rgb(228, 226, 226);
     float: left;
     margin-left: 7.5vh;
+    margin-bottom: 2vh;
     /* background-color: gray; */
+}
+
+.title-menu{
+    font-size: 3.5vh;
+}
+
+.text-menu{
+    font-size: 2vh;
+}
+
+.text-list{
+    font-size: 3vh;
+    margin-left: 2vh;
 }
 
 .menu-img{
@@ -59,4 +72,11 @@
     margin-left: 4vh;
     width: 15vh;
     /* border-radius: 1vh; */
+}
+
+.menu-list{
+    float: left;
+    height: 150vh;
+    width: 35%;
+    border: 2vh solid rgba(31, 31, 31, 0.678);
 }

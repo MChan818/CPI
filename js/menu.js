@@ -1,35 +1,51 @@
-import ShopCounter from "./shop_counter.js"
+import ShopList from "./shop_list.js"
+import { Item } from "./classes/items.js";
+import { add_product_display } from "./function.js";
+import { activate_contador } from "./function.js";
+import { activate_pedido } from "./function.js";
 
-const root = document.querySelector('.menu-row-container');
+/*Aca se crean las secciones por Mesa */
+const root = document.querySelector('#menu1');
+const root2 = document.querySelector('#menu2');
+const root3 = document.querySelector('#menu3');
+const root4 = document.querySelector('#menu4');
+//Aca se crean las listas por Mesa
+const list1 = document.querySelector('#list_mesa1');
+const list2 = document.querySelector('#list_mesa2');
+const list3 = document.querySelector('#list_mesa3');
+const list4 = document.querySelector('#list_mesa4');
+/*-----------------------------------*/
+const items = [];
+items.push(new Item(1,"Bife 1", 400));
+items.push(new Item(2,"Bife 2", 350));
+items.push(new Item(3,"Bife 3", 400));
+items.push(new Item(4,"Bife 4", 400));
+items.push(new Item(5,"Bife 5", 400));
+items.push(new Item(6,"Bife 6", 400));
 
-//ACA ESTA LA DUDA 
-const view = new ShopCounter(root, "Bife de Chorizo", 400, 0, `imagenes/food1.jpg`);
-const view2 = new ShopCounter(root, "Repetido Bife", 400, 0, `imagenes/food1.jpg`);
-
+/*----------------------------------------*/
 //--------------------------CONTADOR BOTONES-------------------------------------//
-let counterDisplay = document.querySelector('.counter-display');
-let counterMinus = document.querySelector('.counter-minus');
-let counterPlus = document.querySelector('.counter-plus');
+/*
+NOTA: Puedo aplicar la funcion con un ciclo for, sacando la length de la cantidad de articulos
+desde la base de datos. En ppio, utilizo la funcion la cantidad de veces como productos haya
 
-let contador = 0;
+NOTA2: Como explicó el tutor, el archivo "shop_counter.js" lo dejare de utilizar cuando pueda sacar los articulos
+desde una base de datos.
+*/
+/*-----------------------------*/
+add_product_display(root, items[0], `imagenes/food1.jpg`);
+add_product_display(root, items[1], `imagenes/food1.jpg`);
+add_product_display(root, items[2], `imagenes/food1.jpg`);
+add_product_display(root2, items[0], `imagenes/food1.jpg`);
+add_product_display(root2, items[1], `imagenes/food1.jpg`);
+add_product_display(root2, items[2], `imagenes/food1.jpg`);
+activate_pedido(list1, items[0]);
+activate_pedido(list1, items[1]);
+activate_pedido(list1, items[2]);
 
-function updateDisplay(){
-    counterDisplay.innerHTML = contador;
+/*DUDA: SI PONGO activate_contador DENTRO DE LA FUNCION ADD_PRODCUCT_DISPLAY, SOLO FUNCIONA CON EL ULTIMO PRODUCTO */
+for(let i = 0; i < 5; i++){
+    activate_contador(items[i]["id"]);
 }
 
-updateDisplay();
 
-counterPlus.addEventListener("click", ()=>{
-    contador++;
-    updateDisplay();
-});
-
-counterMinus.addEventListener("click", ()=>{
-    contador--;
-    if(contador < 0){
-        alert("No se puede realizar un pedido menor a 0");
-        contador = 0;
-    }
-    else
-        updateDisplay();
-});
