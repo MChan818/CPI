@@ -80,3 +80,36 @@
     width: 35%;
     border: 2vh solid rgba(31, 31, 31, 0.678);
 }
+
+@media screen 
+and (min-width: 1201px) 
+and (max-width: 1400px){
+    .menu-item-container{
+        height: 45vh;
+        width: 45vh;
+        margin-left: 3.5vh;
+        margin-bottom: 5vh;
+    }
+    .counter-container{
+        height: 4vh;
+        width: 30%;
+        /* background-color: lightcoral; */
+        float:left;
+        margin-top: 0vh;
+    }
+    .counter-display{
+        height: 100%;
+        width: 40%;
+        /* background-color: lightblue; */
+        float:left;
+        text-align: center;
+    }
+    .button-menu{
+        width: 30%;
+    }
+    .button-buy{
+        margin-top: 0vh;
+        width: 50%;
+        /* border-radius: 1vh; */
+    }
+}

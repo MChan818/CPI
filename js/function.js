@@ -1,5 +1,11 @@
 import ShopCounter from "./shop_counter.js";
-import ShopList from "./shop_list.js";
+/*IMPORTAMOS JQUERY AL ARCHIVO JAVACRIPT*/
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script);
+/*--------------------------------------*/
+
 
 export function activate_contador(items,mesa){
     //ACA ACTIVAMOS LOS CONTADORES
@@ -20,6 +26,10 @@ export function activate_contador(items,mesa){
             contador++;
             updateDisplay();
         });
+        // counterPlus.click(()=>{
+        //     contador++;
+        //     updateDisplay();
+        // });
 
         counterMinus.addEventListener("click", ()=>{
             contador--;
@@ -33,14 +43,15 @@ export function activate_contador(items,mesa){
         //ACA ACTIVAMOS LOS PEDIDOS
         let buy_button = document.querySelector("#buy"+items[i]["id"]+mesa);
 
-        let list = document.querySelector('#list_mesa'+mesa);
+        // let list = document.querySelector('#list_mesa'+mesa);
 
         buy_button.addEventListener("click", ()=>{
             if(counterDisplay.innerHTML == 0){
                 alert("No puede pedir 0 de un plato");
             }
             else{
-                new ShopList(list, items[i]["nombre"], counterDisplay.innerHTML);
+                // new ShopList(list, items[i]["nombre"], counterDisplay.innerHTML);
+                $("#list_mesa"+mesa).append(`<p class="text-list"><strong>${items[i]["nombre"]} x </strong>${counterDisplay.innerHTML}</p>`);
                 counterDisplay.innerHTML = 0;
                 contador = 0;
             }

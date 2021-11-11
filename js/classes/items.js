@@ -19,9 +19,6 @@ export class Item{
         return this.id;
     }
     setDisponible(valor){
-        if(valor == true)
-            this.disponible = true;
-        else
-            this.disponible = false;
+        this.disponible = valor;
     }
 }

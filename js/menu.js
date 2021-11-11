@@ -9,6 +9,19 @@ items.push(new Item(1,"Bife 1", 400,`imagenes/food1.jpg`));
 items.push(new Item(2,"Bife 2", 500,`imagenes/food1.jpg`));
 items.push(new Item(3,"Bife 3", 1000,`imagenes/food1.jpg`));
 
+console.log(items[0].getNombre());
+console.log(items[1].getNombre());
+// items[0].setItem(nombre,"BifePrueba");
+
+const guardar_productos = (clave,valor) => {
+    localStorage.setItem(clave,valor)
+};
+
+guardar_productos("ListaProductos", JSON.stringify(items));
+
+console.log(items[0].getDisponible());
+items[0].setDisponible(false);
+console.log(items[0].getDisponible());
 /*----------------------------------------*/
 //--------------------------CONTADOR BOTONES-------------------------------------//
 /*

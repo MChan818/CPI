@@ -3,7 +3,6 @@ export default class ShopList{
         this.root = root;
         this.root.innerHTML += `
         <p class="text-list"><strong>${item} x</strong> ${quantity}</p>
-        <br>
         `;
     }
 }
