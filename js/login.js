@@ -44,7 +44,7 @@ function validar(){
     for(let i = 0; i < usuarios.length; i++){
         if(x == usuarios[i].getUsuario() && y == usuarios[i].getContrasena()){
             alert("Bienvenido"+" "+usuarios[i].getUsuario())
-            window.location.href = 'pedido.html';
+            window.location.href = 'home.html';
             return true;
         }
         else

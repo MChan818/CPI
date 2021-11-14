@@ -11,6 +11,7 @@
 </head>
 <body>
     <section id="fondo">
+        <button class="btn btn-success shadow-none" id="desafio">ANIMACION DESAFIO</button>
         <div class="login-container">
             <h2 class="login-titulo">Bienvenido!</h2>
             <div class="form-container">
@@ -45,6 +46,19 @@
 
     <script src="js/login.js"></script>
     <script src="js/desafio.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#desafio").click(function(){
+                $(".login-container").css("background-color","#111")
+                                    .css("color","white")
+                                    .slideUp(2000)
+                                    .delay(2000)
+                                    .slideDown(2000)
+                $(".form-container2").css("background-color","#111");
+            })
+        });
+    </script>
 
 </body>
 </html>
