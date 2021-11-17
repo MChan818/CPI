@@ -1,5 +1,6 @@
 import { Item } from "./classes/items.js";
 import ShopCounter from "./shop_counter.js";
+import { Usuario } from "./classes/user.js";
 /*IMPORTAMOS JQUERY AL ARCHIVO JAVACRIPT*/
 
 
