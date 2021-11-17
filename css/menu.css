@@ -74,11 +74,30 @@
     /* border-radius: 1vh; */
 }
 
+.button-delete{
+    width: 15vh;
+    height: 4vh;
+    margin-top: .5vh;
+}
+
 .menu-list{
     float: left;
     height: 150vh;
     width: 35%;
     border: 2vh solid rgba(31, 31, 31, 0.678);
+}
+.list-text-container{
+    width: 50%;
+    /* background-color: blue; */
+    float: left;
+    height: 5vh;
+}
+.list-button-container{
+    width: 50%;
+    height: 5vh;
+    /* background-color: red; */
+    float: left;
+    text-align: center;
 }
 
 @media screen 

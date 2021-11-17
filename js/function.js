@@ -1,63 +1,78 @@
+import { Item } from "./classes/items.js";
 import ShopCounter from "./shop_counter.js";
 /*IMPORTAMOS JQUERY AL ARCHIVO JAVACRIPT*/
-var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-script.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(script);
-/*--------------------------------------*/
 
 
 export function activate_contador(items,mesa){
     //ACA ACTIVAMOS LOS CONTADORES
-    for(let i = 0; i < items.length; i++){
-        let counterDisplay = document.querySelector("#cd"+items[i]["id"]+mesa);
-        let contador = 0;
-
-        function updateDisplay(){
-            counterDisplay.innerHTML = contador;
-        }
+    $(document).ready(function() {
         
-        let counterMinus = document.querySelector("#cm"+items[i]["id"]+mesa);
-        let counterPlus = document.querySelector("#cp"+items[i]["id"]+mesa);
+        for(let i = 0; i < items.length; i++){
+            let counterDisplay = document.querySelector("#cd"+items[i]["id"]+mesa);
+            let contador = 0;
 
-        updateDisplay();
+            function updateDisplay(){
+                counterDisplay.innerHTML = contador;
+            }
 
-        counterPlus.addEventListener("click", ()=>{
-            contador++;
             updateDisplay();
-        });
-        // counterPlus.click(()=>{
-        //     contador++;
-        //     updateDisplay();
-        // });
-
-        counterMinus.addEventListener("click", ()=>{
-            contador--;
-            if(contador < 0){
-                alert("No se puede realizar un pedido menor a 0");
-                contador = 0;
-            }
-            else
+            
+            //CONTADOR POSITIVO
+            $("#cp"+items[i]["id"]+mesa).click(function(){
+                contador++;
                 updateDisplay();
-        });
-        //ACA ACTIVAMOS LOS PEDIDOS
-        let buy_button = document.querySelector("#buy"+items[i]["id"]+mesa);
+            });
+            //CONTADOR NEGATIVO
+            $("#cm"+items[i]["id"]+mesa).click(function(){
+                contador--;
+                if(contador < 0){
+                    alert("No se puede realizar un pedido menor a 0");
+                    contador = 0;
+                }
+                else
+                    updateDisplay();
+            });
 
-        // let list = document.querySelector('#list_mesa'+mesa);
+            //ACA ACTIVAMOS LOS PEDIDOS
+            let buy_button = document.querySelector("#buy"+items[i]["id"]+mesa);
 
-        buy_button.addEventListener("click", ()=>{
-            if(counterDisplay.innerHTML == 0){
-                alert("No puede pedir 0 de un plato");
-            }
-            else{
-                // new ShopList(list, items[i]["nombre"], counterDisplay.innerHTML);
-                $("#list_mesa"+mesa).append(`<p class="text-list"><strong>${items[i]["nombre"]} x </strong>${counterDisplay.innerHTML}</p>`);
-                counterDisplay.innerHTML = 0;
-                contador = 0;
-            }
-        });
-    }
-}
+            let ItemEnLista = [];
+
+            $("#buy"+items[i]["id"]+mesa).click(function(){
+                if(counterDisplay.innerHTML == 0){
+                    alert("No puede pedir 0 de un plato");
+                }
+                else{
+                    let x = 0;
+                    ItemEnLista.push(new Item(items[i]["id"],items[i]["nombre"],items[i]["precio"],items[i]["img"]));
+                    $("#list_mesa"+mesa).append(`
+                    <div class = "list-container">
+                        <div class = "list-text-container">
+                            <p class="text-list"><strong>${ItemEnLista[x]["nombre"]} x </strong>${counterDisplay.innerHTML}</p>
+                        </div>
+                        <div class = "list-button-container">
+                            <button class="button-delete" id="delete-item">
+                                Borrar Pedido        
+                            </button>
+                        </div>
+                    </div>`);
+                    counterDisplay.innerHTML = 0;
+                    contador = 0;
+                    x++;
+                    console.log(ItemEnLista);
+                    $("#delete-item").click(function() {
+                        ItemEnLista.splice(i,1);
+                        console.log(ItemEnLista);
+                    })
+                }
+                //-------------------------------------------------------
+
+                //------------------------------------------------------
+            });
+
+        }
+    })
+};
 
 
 export function add_product_display(items,mesa){

@@ -21,15 +21,18 @@ class Usuario{
 
 const usuarios = [];
 
-usuarios.push(new Usuario("maxi","chan", "hola@gmail.com", "123456"));
-usuarios.push(new Usuario("jose","chan", "chau@gmail.com", "123456"));
-usuarios.push(new Usuario("carlos","chan", "adios@gmail.com", "123456"));
+//ACA OBTENEMOS LOS USUARIOS DE UN ARCHIVO JSON LOCAL
+const USUARIOSJSON = 'js/json/users.json'
 
+$.getJSON(USUARIOSJSON, function (respuesta, estado) {
+    if(estado === "success"){
+        for(let i = 0; i < 10; i++){
+            usuarios[i] = respuesta[i];
+        }
+    }
+});
 
-// CHEQUEO QUE ESTEN BIEN CREADOS LOS USUARIOS
-console.log(usuarios[0].usuario);
-console.log(usuarios[1].usuario);
-console.log(usuarios[2].usuario);
+console.log(usuarios);
 
 function validar(){
     let x = document.forms["form_login"]["inputuser"].value;
@@ -55,5 +58,4 @@ function validar(){
             return false;
         }
     }
-
 }
