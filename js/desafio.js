@@ -1,3 +1,5 @@
+//JS SOLAMENTE PARA LOS DESAFIOS
+
 const numeros = [8,10,6,2,4,0];
 const ascendiente = [];
 const descendiente = [];

@@ -5,6 +5,8 @@ import { activate_contador } from "./function.js";
 
 let n_mesas = 4;
 
+//SE UTILIZA UN URL DE UN JSON LOCAL, LUEGO A SER REEMPLAZADO POR UN URL A LA BASE DE DATOS.
+//EL JSON FUE CREADO CON NODE.JS, A TRAVES DEL ARCHIVO "SERVER.JS"
 const MENUJSON = "js/json/menu.json"
 
 $.get(MENUJSON, function (respuesta, estado) {

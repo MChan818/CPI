@@ -1,11 +1,8 @@
-// import { Item } from "./classes/items.js";
 import ShopCounter from "./shop_counter.js";
-// import { Usuario } from "./classes/user.js";
 import { ItemList } from "./classes/list.js";
 
 export function activate_contador(items,mesa){
     let ItemEnLista = [];
-    let list_counter = 0;
     //ACA ACTIVAMOS LOS CONTADORES
     $(document).ready(function() {
         
@@ -13,6 +10,7 @@ export function activate_contador(items,mesa){
             let counterDisplay = document.querySelector("#cd"+items[i]["id"]+mesa);
             let contador = 0;
 
+            //UPDATE EL INNERHTML
             function updateDisplay(){
                 counterDisplay.innerHTML = contador;
             }
@@ -35,16 +33,13 @@ export function activate_contador(items,mesa){
                     updateDisplay();
             });
 
-            //ACA ACTIVAMOS LOS PEDIDOS
-
             $("#buy"+items[i]["id"]+mesa).click(function(){
-                // for(Item of ItemEnLista){
-                //     if(ItemEnLista[x][]])
-                // }
+                //CHEQUEAMOS QUE NO AGREGUEN 0
                 if(counterDisplay.innerHTML == 0){
                     alert("No puede pedir 0 de un plato");
                 }
-                else{            
+                else{
+                    //SE UTILIZA OTRA CLASE "ITEMLIST" EN VEZ DE ITEM PARA PDOER AGREGAR EL PARAMETRO DE CANTIDAD            
                     ItemEnLista.push(new ItemList(items[i],counterDisplay.innerHTML));
 
                     $("#list_mesa"+mesa).append(`
@@ -59,20 +54,17 @@ export function activate_contador(items,mesa){
                         </div>
                     </div>`);
                     
+                    //BOTON DE "BORRAR PEDIDO"
                     $(".delete-item"+items[i]["id"]).click(function() {
                         let pos = ItemEnLista.map(function(e){return e.item.id;}).indexOf(items[i]["id"]);
-                        console.log(pos);
                         ItemEnLista.splice(pos, 1);
-                        console.log(ItemEnLista);
                         $(".borrar"+items[i]["id"]).empty();
+                        localStorage.setItem("Lista"+mesa,JSON.stringify(ItemEnLista));
                     })
+                    //SETTEAMOS LOS VALORES DEL HTML E INTERNOS A 0 LUEGO DE APRETAR "AGREGAR AL PEDIDO"
                     counterDisplay.innerHTML = 0;
                     contador = 0;
-                    // console.log(ItemEnLista);
-                    // console.log(ItemEnLista[i].item.id);
                     localStorage.setItem("Lista"+mesa,JSON.stringify(ItemEnLista));
-                    
-                    //BOTON DE "BORRAR PEDIDO"
                     
                 }
             });
@@ -80,7 +72,6 @@ export function activate_contador(items,mesa){
         }
     })
 };
-
 
 export function add_product_display(items,mesa){
    let root = document.querySelector('#menu'+mesa);
