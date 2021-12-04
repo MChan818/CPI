@@ -2,8 +2,6 @@
 const USUARIOSJSON = 'js/json/users.json'
 
 function validar(){
-    const USUARIOSJSON = 'js/json/users.json'
-
     $.getJSON(USUARIOSJSON, function (respuesta, estado) {
         if(estado === "success"){
             console.log(respuesta)

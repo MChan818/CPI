@@ -1,10 +1,11 @@
-import { Item } from "./classes/items.js";
+// import { Item } from "./classes/items.js";
 import ShopCounter from "./shop_counter.js";
-import { Usuario } from "./classes/user.js";
-/*IMPORTAMOS JQUERY AL ARCHIVO JAVACRIPT*/
-
+// import { Usuario } from "./classes/user.js";
+import { ItemList } from "./classes/list.js";
 
 export function activate_contador(items,mesa){
+    let ItemEnLista = [];
+    let list_counter = 0;
     //ACA ACTIVAMOS LOS CONTADORES
     $(document).ready(function() {
         
@@ -35,42 +36,47 @@ export function activate_contador(items,mesa){
             });
 
             //ACA ACTIVAMOS LOS PEDIDOS
-            let buy_button = document.querySelector("#buy"+items[i]["id"]+mesa);
-
-            let ItemEnLista = [];
 
             $("#buy"+items[i]["id"]+mesa).click(function(){
+                // for(Item of ItemEnLista){
+                //     if(ItemEnLista[x][]])
+                // }
                 if(counterDisplay.innerHTML == 0){
                     alert("No puede pedir 0 de un plato");
                 }
-                else{
-                    let x = 0;
-                    ItemEnLista.push(new Item(items[i]["id"],items[i]["nombre"],items[i]["precio"],items[i]["img"]));
+                else{            
+                    ItemEnLista.push(new ItemList(items[i],counterDisplay.innerHTML));
+
                     $("#list_mesa"+mesa).append(`
-                    <div class = "list-container">
+                    <div class = "list-container borrar${items[i]["id"]}">
                         <div class = "list-text-container">
-                            <p class="text-list"><strong>${ItemEnLista[x]["nombre"]} x </strong>${counterDisplay.innerHTML}</p>
+                            <p class="text-list"><strong>${items[i]["nombre"]} x </strong>${counterDisplay.innerHTML}</p>
                         </div>
                         <div class = "list-button-container">
-                            <button class="button-delete" id="delete-item">
+                            <button class="button-delete delete-item${items[i]["id"]}">
                                 Borrar Pedido        
                             </button>
                         </div>
                     </div>`);
+                    
+                    $(".delete-item"+items[i]["id"]).click(function() {
+                        let pos = ItemEnLista.map(function(e){return e.item.id;}).indexOf(items[i]["id"]);
+                        console.log(pos);
+                        ItemEnLista.splice(pos, 1);
+                        console.log(ItemEnLista);
+                        $(".borrar"+items[i]["id"]).empty();
+                    })
                     counterDisplay.innerHTML = 0;
                     contador = 0;
-                    x++;
-                    console.log(ItemEnLista);
-                    $("#delete-item").click(function() {
-                        ItemEnLista.splice(i,1);
-                        console.log(ItemEnLista);
-                    })
+                    // console.log(ItemEnLista);
+                    // console.log(ItemEnLista[i].item.id);
+                    localStorage.setItem("Lista"+mesa,JSON.stringify(ItemEnLista));
+                    
+                    //BOTON DE "BORRAR PEDIDO"
+                    
                 }
-                //-------------------------------------------------------
-
-                //------------------------------------------------------
             });
-
+            
         }
     })
 };
